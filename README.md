@@ -7,6 +7,10 @@ Express Note Taker is an application that allows users to write, save, and delet
 
 ## Screenshots
 
+<img width="1680" alt="Screen Shot 2020-07-13 at 9 46 27 AM" src="https://user-images.githubusercontent.com/64296192/87330806-f1213500-c4ed-11ea-9bc6-30b859809fea.png">
+
+<img width="1680" alt="Screen Shot 2020-07-13 at 9 47 04 AM" src="https://user-images.githubusercontent.com/64296192/87330820-f4b4bc00-c4ed-11ea-8255-745641332d5d.png">
+
 ## Table of Contents
 
 * [Installation](#installation)
