@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const fs = require('fs');
 const bodyParser = require("body-parser");
-const db = require('../db/db.json');
 const router = express.Router();
 const filePath = path.join(__dirname,'../db/db.json');
 
@@ -24,29 +23,17 @@ router.post("/api/notes", async (req, res)=>{
 })
 
 router.delete("/api/notes/:id", async (req, res)=>{
-  // console.log(req);
+  newArr = [];
   console.log(req.params.id);
   let id = req.params.id;
-  // fs.readFile(filePath, function (err, data){
-  //   let json = JSON.parse(data)
-  //   console.log(json);
-  //   // let newArr = [];
-  //   // for(let i = 0;i<json.length;i++){
-  //   //   if (json[i].id !== id){
-  //   //     console.log("delete");
-        
-  //   //   }
-  //   // }
-
-  //   // let newArr = json.filter((id,json)=>{
-  //   //   if(json.id !== id){
-  //   //     return json;
-  //   //   }
-  //   //   console.log(newArr);
-  //   // })
-  //   // fs.writeFileSync(path.join(__dirname,'../db/db.json'),newArr)
-  //   // res.sendFile(path.join(__dirname,'../db/db.json'))
-  // })
+  fs.readFile(filePath, function (err, data){
+    let json = JSON.parse(data)
+    console.log(json);
+    newArr = json.filter(json=>json.id!==id)
+    console.log(newArr);
+    newArr = JSON.stringify(newArr);
+    fs.writeFileSync(path.join(__dirname,'../db/db.json'),newArr)
+    })
 })
 
 
