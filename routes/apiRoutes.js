@@ -7,7 +7,7 @@ const filePath = path.join(__dirname,'../db/db.json');
 
 // Get Request
 router.get("/api/notes",(req, res)=>{
-    res.sendFile(filePath)
+    res.sendFile(path.join(__dirname,'../db/db.json'));
   });
 
 // Post Request
@@ -32,7 +32,8 @@ router.delete("/api/notes/:id", async (req, res)=>{
     newArr = json.filter(json=>json.id!==id)
     console.log(newArr);
     newArr = JSON.stringify(newArr);
-    fs.writeFileSync(path.join(__dirname,'../db/db.json'),newArr)
+    fs.writeFileSync(path.join(__dirname,'../db/db.json'),newArr);
+    res.sendFile(path.join(__dirname,'../db/db.json'))
     })
 })
 
