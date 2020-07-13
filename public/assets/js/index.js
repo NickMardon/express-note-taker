@@ -51,13 +51,14 @@ const renderActiveNote = () => {
 
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
-  let idCount = 1;
+  let itemTitle = $noteTitle.val();
+  let itemArr = itemTitle.split("");
+  let itemID = itemArr.shift() + Math.floor(Math.random()*100) + itemArr.pop();
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
-    id: idCount
+    id: itemID
   };
-  idCount++;
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
