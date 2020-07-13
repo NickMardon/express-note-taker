@@ -19,12 +19,13 @@ router.post("/api/notes", async (req, res)=>{
   let note = (req.body);
   let filePath = path.join(__dirname,'../db/db.json');
   fs.readFile(filePath, function (err, data){
-    var json = JSON.parse(data)
-    console.log(json);
+    let json = JSON.parse(data)
+    // console.log(json);
     json.push(note);
     console.log(json);
     let newData = JSON.stringify(json);
     fs.writeFileSync(path.join(__dirname,'../db/db.json'),newData)
+    res.sendFile(path.join(__dirname,'../db/db.json'))
   })
 
 
